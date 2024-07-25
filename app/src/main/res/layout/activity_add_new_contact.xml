@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="contacts"
+            type="com.example.contacts.Contacts" />
+        <variable
+            name="clickHandler"
+            type="com.example.contacts.AddNewContactClickHandler" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:context=".AddNewContactActivity">
+
+        <EditText
+            android:id="@+id/edittextname"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:hint="Name"
+            android:text="@={contacts.name}"
+            android:textColor="#7B7272"
+            android:textColorHint="#7B7272"
+            app:layout_constraintBottom_toTopOf="@+id/edittextmail"
+            app:layout_constraintStart_toStartOf="@+id/edittextmail"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
+            android:id="@+id/edittextmail"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="245dp"
+            android:hint="email"
+            android:text="@={contacts.email}"
+            android:textColor="#7B7272"
+            android:textColorHint="#7B7272"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="152dp"
+            android:layout_height="52dp"
+            android:layout_marginBottom="144dp"
+            android:gravity="center"
+            android:onClick="@{clickHandler::onSubmitbuttonClicked}"
+            android:text="SUBMIT"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/edittextmail"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edittextmail"
+            app:layout_constraintVertical_bias="1.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
